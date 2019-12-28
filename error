@@ -1,0 +1,38 @@
+#include "pitches.h"
+
+int melody[] = {
+  NOTE_G4, NOTE_C5, NOTE_DS5, NOTE_D5, NOTE_C5, NOTE_DS5, NOTE_C5, NOTE_D5, NOTE_C5, NOTE_GS4, NOTE_AS4, NOTE_G4, 0, 
+  NOTE_G4, NOTE_C5, NOTE_DS5, NOTE_D5, NOTE_C5, NOTE_DS5, NOTE_C5, NOTE_D5, NOTE_C5, NOTE_G4, NOTE_FS4, NOTE_F4, 0, 
+  NOTE_F4, NOTE_GS4, NOTE_B4, NOTE_D5, 0, 
+  NOTE_F4, NOTE_GS4, NOTE_B4, NOTE_C5, 0,
+  NOTE_C4, NOTE_G4, NOTE_AS4, NOTE_GS4, NOTE_G4, NOTE_AS4, NOTE_GS4, NOTE_GS4, NOTE_G4, NOTE_G4, NOTE_DS4, NOTE_C4, 0
+  NOTE_C5, NOTE_C5, NOTE_B4, NOTE_AS4, 0
+};
+
+
+int noteDurations[] = {
+  4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1,
+  4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1,
+  4, 4, 4, 4, 1,
+  4, 4, 4, 4, 1,
+  4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1,
+  4, 4, 4, 4, 1
+};
+
+void setup() {
+  
+  for (int thisNote = 0; thisNote < 48; thisNote++) {
+   
+    int noteDuration = 1000 / noteDurations[thisNote];
+    tone(8, melody[thisNote], noteDuration);
+ 
+    int pauseBetweenNotes = noteDuration * 1.55;
+    delay(pauseBetweenNotes);
+
+    noTone(8);
+  }
+}
+
+void loop() {
+ 
+}
